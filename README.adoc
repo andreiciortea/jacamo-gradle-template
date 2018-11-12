@@ -20,5 +20,5 @@ git clone git@github.com:andreiciortea/jacamo-gradle-template.git
 You can also pass along a jcm file:
 
 ----
-./gradle -PjcmFile=main.jcm
+gradle -PjcmFile=main.jcm
 ----
