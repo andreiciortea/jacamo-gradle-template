@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+defaultTasks 'runJaCaMo'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/env/'
+        }
+    }
+}
+
+repositories {
+    jcenter()
+
+    maven { url "http://jacamo.sourceforge.net/maven2" }
+    maven { url "http://jade.tilab.com/maven/" }
+}
+
+dependencies {
+    compile group: 'org.jacamo' , name: 'jacamo'   , version: '0.8-SNAPSHOT'  , changing: true , transitive: true
+}
+
+task runJaCaMo(type: JavaExec, dependsOn: classes) {    
+    if(project.hasProperty('jcmFile')){
+        args(jcmFile)
+    } else {
+        args('main.jcm')
+    }
+    
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'jacamo.infra.JaCaMoLauncher'
+}
