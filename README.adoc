@@ -1,0 +1,24 @@
+= JaCaMo Gradle Template
+
+You can clone this project to quickly set up a https://github.com/jacamo-lang/jacamo[JaCaMo] application.
+
+. Clone this project:
+
+----
+git clone git@github.com:andreiciortea/jacamo-gradle-template.git
+----
+
+[start=2]
+. Delete the `.git` folder
+
+. Run the default task:
+
+----
+./gradlew
+----
+
+You can also pass along a jcm file:
+
+----
+./gradle -PjcmFile=main.jcm
+----
